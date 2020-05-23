@@ -1,0 +1,560 @@
+﻿<Window x:Class="NetCoreTetris.GameWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:moves="clr-namespace:NetCoreTetris"
+        Title="Tetris" Height="850" Width="768" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    <Window.InputBindings>
+        <KeyBinding Key="Esc" Command="{Binding PauseResumeGameCommand}" />
+        <KeyBinding Key="Left" Command="{Binding GameInputCommand}" CommandParameter="{x:Static moves:Moves.Left}" />
+        <KeyBinding Key="Right" Command="{Binding GameInputCommand}" CommandParameter="{x:Static moves:Moves.Right}" />
+        <KeyBinding Key="Up" Command="{Binding GameInputCommand}" CommandParameter="{x:Static moves:Moves.Rotate}" />
+        <KeyBinding Key="Down" Command="{Binding GameInputCommand}" CommandParameter="{x:Static moves:Moves.Down}" />
+        <KeyBinding Key="Space" Command="{Binding GameInputCommand}" CommandParameter="{x:Static moves:Moves.FullDown}" />
+        <MouseBinding MouseAction="LeftClick" Command="{Binding GameInputCommand}" CommandParameter="{x:Static moves:Moves.Left}" />
+        <MouseBinding MouseAction="RightClick" Command="{Binding GameInputCommand}" CommandParameter="{x:Static moves:Moves.Right}" />
+        <MouseBinding MouseAction="WheelClick" Command="{Binding GameInputCommand}" CommandParameter="{x:Static moves:Moves.Rotate}" />
+    </Window.InputBindings>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Border Grid.Row="0" Grid.Column="0" BorderBrush="Black" BorderThickness="1" Margin="3">
+            <Grid Background="White">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40" />
+                    <RowDefinition Height="40" />
+                    <RowDefinition Height="40" />
+                    <RowDefinition Height="40" />
+                    <RowDefinition Height="40" />
+                    <RowDefinition Height="40" />
+                    <RowDefinition Height="40" />
+                    <RowDefinition Height="40" />
+                    <RowDefinition Height="40" />
+                    <RowDefinition Height="40" />
+                    <RowDefinition Height="40" />
+                    <RowDefinition Height="40" />
+                    <RowDefinition Height="40" />
+                    <RowDefinition Height="40" />
+                    <RowDefinition Height="40" />
+                    <RowDefinition Height="40" />
+                    <RowDefinition Height="40" />
+                    <RowDefinition Height="40" />
+                    <RowDefinition Height="40" />
+                    <RowDefinition Height="40" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="40" />
+                    <ColumnDefinition Width="40" />
+                    <ColumnDefinition Width="40" />
+                    <ColumnDefinition Width="40" />
+                    <ColumnDefinition Width="40" />
+                    <ColumnDefinition Width="40" />
+                    <ColumnDefinition Width="40" />
+                    <ColumnDefinition Width="40" />
+                    <ColumnDefinition Width="40" />
+                    <ColumnDefinition Width="40" />
+                </Grid.ColumnDefinitions>
+                <!-- First Row-->
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="0" Grid.Column="0" 
+                  Stroke="{Binding Cells[0].BorderBrush}" Fill="{Binding Cells[0].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="0" Grid.Column="1" 
+                  Stroke="{Binding Cells[1].BorderBrush}" Fill="{Binding Cells[1].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="0" Grid.Column="2" 
+                  Stroke="{Binding Cells[2].BorderBrush}" Fill="{Binding Cells[2].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="0" Grid.Column="3" 
+                  Stroke="{Binding Cells[3].BorderBrush}" Fill="{Binding Cells[3].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="0" Grid.Column="4" 
+                  Stroke="{Binding Cells[4].BorderBrush}" Fill="{Binding Cells[4].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="0" Grid.Column="5" 
+                  Stroke="{Binding Cells[5].BorderBrush}" Fill="{Binding Cells[5].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="0" Grid.Column="6" 
+                  Stroke="{Binding Cells[6].BorderBrush}" Fill="{Binding Cells[6].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="0" Grid.Column="7" 
+                  Stroke="{Binding Cells[7].BorderBrush}" Fill="{Binding Cells[7].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="0" Grid.Column="8" 
+                  Stroke="{Binding Cells[8].BorderBrush}" Fill="{Binding Cells[8].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="0" Grid.Column="9" 
+                  Stroke="{Binding Cells[9].BorderBrush}" Fill="{Binding Cells[9].Brush}" />
+                <!-- Second Row-->
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="1" Grid.Column="0" 
+                  Stroke="{Binding Cells[10].BorderBrush}" Fill="{Binding Cells[10].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="1" Grid.Column="1" 
+                  Stroke="{Binding Cells[11].BorderBrush}" Fill="{Binding Cells[11].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="1" Grid.Column="2" 
+                  Stroke="{Binding Cells[12].BorderBrush}" Fill="{Binding Cells[12].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="1" Grid.Column="3" 
+                  Stroke="{Binding Cells[13].BorderBrush}" Fill="{Binding Cells[13].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="1" Grid.Column="4" 
+                  Stroke="{Binding Cells[14].BorderBrush}" Fill="{Binding Cells[14].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="1" Grid.Column="5" 
+                  Stroke="{Binding Cells[15].BorderBrush}" Fill="{Binding Cells[15].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="1" Grid.Column="6" 
+                  Stroke="{Binding Cells[16].BorderBrush}" Fill="{Binding Cells[16].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="1" Grid.Column="7" 
+                  Stroke="{Binding Cells[17].BorderBrush}" Fill="{Binding Cells[17].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="1" Grid.Column="8" 
+                  Stroke="{Binding Cells[18].BorderBrush}" Fill="{Binding Cells[18].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="1" Grid.Column="9" 
+                  Stroke="{Binding Cells[19].BorderBrush}" Fill="{Binding Cells[19].Brush}" />
+                <!-- Third row-->
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="2" Grid.Column="0" 
+                  Stroke="{Binding Cells[20].BorderBrush}" Fill="{Binding Cells[20].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="2" Grid.Column="1" 
+                  Stroke="{Binding Cells[21].BorderBrush}" Fill="{Binding Cells[21].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="2" Grid.Column="2" 
+                  Stroke="{Binding Cells[22].BorderBrush}" Fill="{Binding Cells[22].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="2" Grid.Column="3" 
+                  Stroke="{Binding Cells[23].BorderBrush}" Fill="{Binding Cells[23].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="2" Grid.Column="4" 
+                  Stroke="{Binding Cells[24].BorderBrush}" Fill="{Binding Cells[24].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="2" Grid.Column="5" 
+                  Stroke="{Binding Cells[25].BorderBrush}" Fill="{Binding Cells[25].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="2" Grid.Column="6" 
+                  Stroke="{Binding Cells[26].BorderBrush}" Fill="{Binding Cells[26].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="2" Grid.Column="7" 
+                  Stroke="{Binding Cells[27].BorderBrush}" Fill="{Binding Cells[27].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="2" Grid.Column="8" 
+                  Stroke="{Binding Cells[28].BorderBrush}" Fill="{Binding Cells[28].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="2" Grid.Column="9" 
+                  Stroke="{Binding Cells[29].BorderBrush}" Fill="{Binding Cells[29].Brush}" />
+                <!-- Fourth row-->
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="3" Grid.Column="0" 
+                  Stroke="{Binding Cells[30].BorderBrush}" Fill="{Binding Cells[30].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="3" Grid.Column="1" 
+                  Stroke="{Binding Cells[31].BorderBrush}" Fill="{Binding Cells[31].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="3" Grid.Column="2" 
+                  Stroke="{Binding Cells[32].BorderBrush}" Fill="{Binding Cells[32].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="3" Grid.Column="3" 
+                  Stroke="{Binding Cells[33].BorderBrush}" Fill="{Binding Cells[33].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="3" Grid.Column="4" 
+                  Stroke="{Binding Cells[34].BorderBrush}" Fill="{Binding Cells[34].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="3" Grid.Column="5" 
+                  Stroke="{Binding Cells[35].BorderBrush}" Fill="{Binding Cells[35].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="3" Grid.Column="6" 
+                  Stroke="{Binding Cells[36].BorderBrush}" Fill="{Binding Cells[36].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="3" Grid.Column="7" 
+                  Stroke="{Binding Cells[37].BorderBrush}" Fill="{Binding Cells[37].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="3" Grid.Column="8" 
+                  Stroke="{Binding Cells[38].BorderBrush}" Fill="{Binding Cells[38].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="3" Grid.Column="9" 
+                  Stroke="{Binding Cells[39].BorderBrush}" Fill="{Binding Cells[39].Brush}" />
+                <!-- Fifth row-->
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="4" Grid.Column="0" 
+                  Stroke="{Binding Cells[40].BorderBrush}" Fill="{Binding Cells[40].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="4" Grid.Column="1" 
+                  Stroke="{Binding Cells[41].BorderBrush}" Fill="{Binding Cells[41].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="4" Grid.Column="2" 
+                  Stroke="{Binding Cells[42].BorderBrush}" Fill="{Binding Cells[42].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="4" Grid.Column="3" 
+                  Stroke="{Binding Cells[43].BorderBrush}" Fill="{Binding Cells[43].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="4" Grid.Column="4" 
+                  Stroke="{Binding Cells[44].BorderBrush}" Fill="{Binding Cells[44].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="4" Grid.Column="5" 
+                  Stroke="{Binding Cells[45].BorderBrush}" Fill="{Binding Cells[45].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="4" Grid.Column="6" 
+                  Stroke="{Binding Cells[46].BorderBrush}" Fill="{Binding Cells[46].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="4" Grid.Column="7" 
+                  Stroke="{Binding Cells[47].BorderBrush}" Fill="{Binding Cells[47].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="4" Grid.Column="8" 
+                  Stroke="{Binding Cells[48].BorderBrush}" Fill="{Binding Cells[48].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="4" Grid.Column="9" 
+                  Stroke="{Binding Cells[49].BorderBrush}" Fill="{Binding Cells[49].Brush}" />
+                <!-- Sixth row-->
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="5" Grid.Column="0" 
+                  Stroke="{Binding Cells[50].BorderBrush}" Fill="{Binding Cells[50].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="5" Grid.Column="1" 
+                  Stroke="{Binding Cells[51].BorderBrush}" Fill="{Binding Cells[51].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="5" Grid.Column="2" 
+                  Stroke="{Binding Cells[52].BorderBrush}" Fill="{Binding Cells[52].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="5" Grid.Column="3" 
+                  Stroke="{Binding Cells[53].BorderBrush}" Fill="{Binding Cells[53].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="5" Grid.Column="4" 
+                  Stroke="{Binding Cells[54].BorderBrush}" Fill="{Binding Cells[54].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="5" Grid.Column="5" 
+                  Stroke="{Binding Cells[55].BorderBrush}" Fill="{Binding Cells[55].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="5" Grid.Column="6" 
+                  Stroke="{Binding Cells[56].BorderBrush}" Fill="{Binding Cells[56].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="5" Grid.Column="7" 
+                  Stroke="{Binding Cells[57].BorderBrush}" Fill="{Binding Cells[57].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="5" Grid.Column="8" 
+                  Stroke="{Binding Cells[58].BorderBrush}" Fill="{Binding Cells[58].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="5" Grid.Column="9" 
+                  Stroke="{Binding Cells[59].BorderBrush}" Fill="{Binding Cells[59].Brush}" />
+                <!-- Seventh row-->
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="6" Grid.Column="0" 
+                  Stroke="{Binding Cells[60].BorderBrush}" Fill="{Binding Cells[60].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="6" Grid.Column="1" 
+                  Stroke="{Binding Cells[61].BorderBrush}" Fill="{Binding Cells[61].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="6" Grid.Column="2" 
+                  Stroke="{Binding Cells[62].BorderBrush}" Fill="{Binding Cells[62].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="6" Grid.Column="3" 
+                  Stroke="{Binding Cells[63].BorderBrush}" Fill="{Binding Cells[63].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="6" Grid.Column="4" 
+                  Stroke="{Binding Cells[64].BorderBrush}" Fill="{Binding Cells[64].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="6" Grid.Column="5" 
+                  Stroke="{Binding Cells[65].BorderBrush}" Fill="{Binding Cells[65].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="6" Grid.Column="6" 
+                  Stroke="{Binding Cells[66].BorderBrush}" Fill="{Binding Cells[66].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="6" Grid.Column="7" 
+                  Stroke="{Binding Cells[67].BorderBrush}" Fill="{Binding Cells[67].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="6" Grid.Column="8" 
+                  Stroke="{Binding Cells[68].BorderBrush}" Fill="{Binding Cells[68].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="6" Grid.Column="9" 
+                  Stroke="{Binding Cells[69].BorderBrush}" Fill="{Binding Cells[69].Brush}" />
+                <!-- Eight row-->
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="7" Grid.Column="0" 
+                  Stroke="{Binding Cells[70].BorderBrush}" Fill="{Binding Cells[70].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="7" Grid.Column="1" 
+                  Stroke="{Binding Cells[71].BorderBrush}" Fill="{Binding Cells[71].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="7" Grid.Column="2" 
+                  Stroke="{Binding Cells[72].BorderBrush}" Fill="{Binding Cells[72].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="7" Grid.Column="3" 
+                  Stroke="{Binding Cells[73].BorderBrush}" Fill="{Binding Cells[73].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="7" Grid.Column="4" 
+                  Stroke="{Binding Cells[74].BorderBrush}" Fill="{Binding Cells[74].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="7" Grid.Column="5" 
+                  Stroke="{Binding Cells[75].BorderBrush}" Fill="{Binding Cells[75].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="7" Grid.Column="6" 
+                  Stroke="{Binding Cells[76].BorderBrush}" Fill="{Binding Cells[76].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="7" Grid.Column="7" 
+                  Stroke="{Binding Cells[77].BorderBrush}" Fill="{Binding Cells[77].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="7" Grid.Column="8" 
+                  Stroke="{Binding Cells[78].BorderBrush}" Fill="{Binding Cells[78].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="7" Grid.Column="9" 
+                  Stroke="{Binding Cells[79].BorderBrush}" Fill="{Binding Cells[79].Brush}" />
+                <!-- Ninth row-->
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="8" Grid.Column="0" 
+                  Stroke="{Binding Cells[80].BorderBrush}" Fill="{Binding Cells[80].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="8" Grid.Column="1" 
+                  Stroke="{Binding Cells[81].BorderBrush}" Fill="{Binding Cells[81].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="8" Grid.Column="2" 
+                  Stroke="{Binding Cells[82].BorderBrush}" Fill="{Binding Cells[82].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="8" Grid.Column="3" 
+                  Stroke="{Binding Cells[83].BorderBrush}" Fill="{Binding Cells[83].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="8" Grid.Column="4" 
+                  Stroke="{Binding Cells[84].BorderBrush}" Fill="{Binding Cells[84].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="8" Grid.Column="5" 
+                  Stroke="{Binding Cells[85].BorderBrush}" Fill="{Binding Cells[85].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="8" Grid.Column="6" 
+                  Stroke="{Binding Cells[86].BorderBrush}" Fill="{Binding Cells[86].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="8" Grid.Column="7" 
+                  Stroke="{Binding Cells[87].BorderBrush}" Fill="{Binding Cells[87].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="8" Grid.Column="8" 
+                  Stroke="{Binding Cells[88].BorderBrush}" Fill="{Binding Cells[88].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="8" Grid.Column="9" 
+                  Stroke="{Binding Cells[89].BorderBrush}" Fill="{Binding Cells[89].Brush}" />
+                <!-- Tenth row-->
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="9" Grid.Column="0" 
+                  Stroke="{Binding Cells[90].BorderBrush}" Fill="{Binding Cells[90].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="9" Grid.Column="1" 
+                  Stroke="{Binding Cells[91].BorderBrush}" Fill="{Binding Cells[91].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="9" Grid.Column="2" 
+                  Stroke="{Binding Cells[92].BorderBrush}" Fill="{Binding Cells[92].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="9" Grid.Column="3" 
+                  Stroke="{Binding Cells[93].BorderBrush}" Fill="{Binding Cells[93].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="9" Grid.Column="4" 
+                  Stroke="{Binding Cells[94].BorderBrush}" Fill="{Binding Cells[94].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="9" Grid.Column="5" 
+                  Stroke="{Binding Cells[95].BorderBrush}" Fill="{Binding Cells[95].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="9" Grid.Column="6" 
+                  Stroke="{Binding Cells[96].BorderBrush}" Fill="{Binding Cells[96].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="9" Grid.Column="7" 
+                  Stroke="{Binding Cells[97].BorderBrush}" Fill="{Binding Cells[97].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="9" Grid.Column="8" 
+                  Stroke="{Binding Cells[98].BorderBrush}" Fill="{Binding Cells[98].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="9" Grid.Column="9" 
+                  Stroke="{Binding Cells[99].BorderBrush}" Fill="{Binding Cells[99].Brush}" />
+                <!-- Eleventh row-->
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="10" Grid.Column="0" 
+                  Stroke="{Binding Cells[100].BorderBrush}" Fill="{Binding Cells[100].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="10" Grid.Column="1" 
+                  Stroke="{Binding Cells[101].BorderBrush}" Fill="{Binding Cells[101].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="10" Grid.Column="2" 
+                  Stroke="{Binding Cells[102].BorderBrush}" Fill="{Binding Cells[102].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="10" Grid.Column="3" 
+                  Stroke="{Binding Cells[103].BorderBrush}" Fill="{Binding Cells[103].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="10" Grid.Column="4" 
+                  Stroke="{Binding Cells[104].BorderBrush}" Fill="{Binding Cells[104].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="10" Grid.Column="5" 
+                  Stroke="{Binding Cells[105].BorderBrush}" Fill="{Binding Cells[105].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="10" Grid.Column="6" 
+                  Stroke="{Binding Cells[106].BorderBrush}" Fill="{Binding Cells[106].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="10" Grid.Column="7" 
+                  Stroke="{Binding Cells[107].BorderBrush}" Fill="{Binding Cells[107].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="10" Grid.Column="8" 
+                  Stroke="{Binding Cells[108].BorderBrush}" Fill="{Binding Cells[108].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="10" Grid.Column="9" 
+                  Stroke="{Binding Cells[109].BorderBrush}" Fill="{Binding Cells[109].Brush}" />
+                <!-- Twelfth row-->
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="11" Grid.Column="0" 
+                  Stroke="{Binding Cells[110].BorderBrush}" Fill="{Binding Cells[110].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="11" Grid.Column="1" 
+                  Stroke="{Binding Cells[111].BorderBrush}" Fill="{Binding Cells[111].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="11" Grid.Column="2" 
+                  Stroke="{Binding Cells[112].BorderBrush}" Fill="{Binding Cells[112].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="11" Grid.Column="3" 
+                  Stroke="{Binding Cells[113].BorderBrush}" Fill="{Binding Cells[113].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="11" Grid.Column="4" 
+                  Stroke="{Binding Cells[114].BorderBrush}" Fill="{Binding Cells[114].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="11" Grid.Column="5" 
+                  Stroke="{Binding Cells[115].BorderBrush}" Fill="{Binding Cells[115].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="11" Grid.Column="6" 
+                  Stroke="{Binding Cells[116].BorderBrush}" Fill="{Binding Cells[116].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="11" Grid.Column="7" 
+                  Stroke="{Binding Cells[117].BorderBrush}" Fill="{Binding Cells[117].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="11" Grid.Column="8" 
+                  Stroke="{Binding Cells[118].BorderBrush}" Fill="{Binding Cells[118].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="11" Grid.Column="9" 
+                  Stroke="{Binding Cells[119].BorderBrush}" Fill="{Binding Cells[119].Brush}" />
+                <!-- Thirteenth row-->
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="12" Grid.Column="0" 
+                  Stroke="{Binding Cells[120].BorderBrush}" Fill="{Binding Cells[120].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="12" Grid.Column="1" 
+                  Stroke="{Binding Cells[121].BorderBrush}" Fill="{Binding Cells[121].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="12" Grid.Column="2" 
+                  Stroke="{Binding Cells[122].BorderBrush}" Fill="{Binding Cells[122].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="12" Grid.Column="3" 
+                  Stroke="{Binding Cells[123].BorderBrush}" Fill="{Binding Cells[123].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="12" Grid.Column="4" 
+                  Stroke="{Binding Cells[124].BorderBrush}" Fill="{Binding Cells[124].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="12" Grid.Column="5" 
+                  Stroke="{Binding Cells[125].BorderBrush}" Fill="{Binding Cells[125].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="12" Grid.Column="6" 
+                  Stroke="{Binding Cells[126].BorderBrush}" Fill="{Binding Cells[126].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="12" Grid.Column="7" 
+                  Stroke="{Binding Cells[127].BorderBrush}" Fill="{Binding Cells[127].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="12" Grid.Column="8" 
+                  Stroke="{Binding Cells[128].BorderBrush}" Fill="{Binding Cells[128].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="12" Grid.Column="9" 
+                  Stroke="{Binding Cells[129].BorderBrush}" Fill="{Binding Cells[129].Brush}" />
+                <!-- Fourteenth row-->
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="13" Grid.Column="0" 
+                  Stroke="{Binding Cells[130].BorderBrush}" Fill="{Binding Cells[130].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="13" Grid.Column="1" 
+                  Stroke="{Binding Cells[131].BorderBrush}" Fill="{Binding Cells[131].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="13" Grid.Column="2" 
+                  Stroke="{Binding Cells[132].BorderBrush}" Fill="{Binding Cells[132].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="13" Grid.Column="3" 
+                  Stroke="{Binding Cells[133].BorderBrush}" Fill="{Binding Cells[133].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="13" Grid.Column="4" 
+                  Stroke="{Binding Cells[134].BorderBrush}" Fill="{Binding Cells[134].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="13" Grid.Column="5" 
+                  Stroke="{Binding Cells[135].BorderBrush}" Fill="{Binding Cells[135].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="13" Grid.Column="6" 
+                  Stroke="{Binding Cells[136].BorderBrush}" Fill="{Binding Cells[136].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="13" Grid.Column="7" 
+                  Stroke="{Binding Cells[137].BorderBrush}" Fill="{Binding Cells[137].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="13" Grid.Column="8" 
+                  Stroke="{Binding Cells[138].BorderBrush}" Fill="{Binding Cells[138].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="13" Grid.Column="9" 
+                  Stroke="{Binding Cells[139].BorderBrush}" Fill="{Binding Cells[139].Brush}" />
+                <!-- Fifteenth row-->
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="14" Grid.Column="0" 
+                  Stroke="{Binding Cells[140].BorderBrush}" Fill="{Binding Cells[140].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="14" Grid.Column="1" 
+                  Stroke="{Binding Cells[141].BorderBrush}" Fill="{Binding Cells[141].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="14" Grid.Column="2" 
+                  Stroke="{Binding Cells[142].BorderBrush}" Fill="{Binding Cells[142].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="14" Grid.Column="3" 
+                  Stroke="{Binding Cells[143].BorderBrush}" Fill="{Binding Cells[143].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="14" Grid.Column="4" 
+                  Stroke="{Binding Cells[144].BorderBrush}" Fill="{Binding Cells[144].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="14" Grid.Column="5" 
+                  Stroke="{Binding Cells[145].BorderBrush}" Fill="{Binding Cells[145].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="14" Grid.Column="6" 
+                  Stroke="{Binding Cells[146].BorderBrush}" Fill="{Binding Cells[146].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="14" Grid.Column="7" 
+                  Stroke="{Binding Cells[147].BorderBrush}" Fill="{Binding Cells[147].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="14" Grid.Column="8" 
+                  Stroke="{Binding Cells[148].BorderBrush}" Fill="{Binding Cells[148].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="14" Grid.Column="9" 
+                  Stroke="{Binding Cells[149].BorderBrush}" Fill="{Binding Cells[149].Brush}" />
+                <!-- Sixteenth row-->
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="15" Grid.Column="0" 
+                  Stroke="{Binding Cells[150].BorderBrush}" Fill="{Binding Cells[150].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="15" Grid.Column="1" 
+                  Stroke="{Binding Cells[151].BorderBrush}" Fill="{Binding Cells[151].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="15" Grid.Column="2" 
+                  Stroke="{Binding Cells[152].BorderBrush}" Fill="{Binding Cells[152].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="15" Grid.Column="3" 
+                  Stroke="{Binding Cells[153].BorderBrush}" Fill="{Binding Cells[153].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="15" Grid.Column="4" 
+                  Stroke="{Binding Cells[154].BorderBrush}" Fill="{Binding Cells[154].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="15" Grid.Column="5" 
+                  Stroke="{Binding Cells[155].BorderBrush}" Fill="{Binding Cells[155].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="15" Grid.Column="6" 
+                  Stroke="{Binding Cells[156].BorderBrush}" Fill="{Binding Cells[156].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="15" Grid.Column="7" 
+                  Stroke="{Binding Cells[157].BorderBrush}" Fill="{Binding Cells[157].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="15" Grid.Column="8" 
+                  Stroke="{Binding Cells[158].BorderBrush}" Fill="{Binding Cells[158].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="15" Grid.Column="9" 
+                  Stroke="{Binding Cells[159].BorderBrush}" Fill="{Binding Cells[159].Brush}" />
+                <!-- Seventeenth row-->
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="16" Grid.Column="0" 
+                  Stroke="{Binding Cells[160].BorderBrush}" Fill="{Binding Cells[160].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="16" Grid.Column="1" 
+                  Stroke="{Binding Cells[161].BorderBrush}" Fill="{Binding Cells[161].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="16" Grid.Column="2" 
+                  Stroke="{Binding Cells[162].BorderBrush}" Fill="{Binding Cells[162].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="16" Grid.Column="3" 
+                  Stroke="{Binding Cells[163].BorderBrush}" Fill="{Binding Cells[163].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="16" Grid.Column="4" 
+                  Stroke="{Binding Cells[164].BorderBrush}" Fill="{Binding Cells[164].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="16" Grid.Column="5" 
+                  Stroke="{Binding Cells[165].BorderBrush}" Fill="{Binding Cells[165].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="16" Grid.Column="6" 
+                  Stroke="{Binding Cells[166].BorderBrush}" Fill="{Binding Cells[166].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="16" Grid.Column="7" 
+                  Stroke="{Binding Cells[167].BorderBrush}" Fill="{Binding Cells[167].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="16" Grid.Column="8" 
+                  Stroke="{Binding Cells[168].BorderBrush}" Fill="{Binding Cells[168].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="16" Grid.Column="9" 
+                  Stroke="{Binding Cells[169].BorderBrush}" Fill="{Binding Cells[169].Brush}" />
+                <!-- Eighteenth row-->
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="17" Grid.Column="0" 
+                  Stroke="{Binding Cells[170].BorderBrush}" Fill="{Binding Cells[170].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="17" Grid.Column="1" 
+                  Stroke="{Binding Cells[171].BorderBrush}" Fill="{Binding Cells[171].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="17" Grid.Column="2" 
+                  Stroke="{Binding Cells[172].BorderBrush}" Fill="{Binding Cells[172].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="17" Grid.Column="3" 
+                  Stroke="{Binding Cells[173].BorderBrush}" Fill="{Binding Cells[173].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="17" Grid.Column="4" 
+                  Stroke="{Binding Cells[174].BorderBrush}" Fill="{Binding Cells[174].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="17" Grid.Column="5" 
+                  Stroke="{Binding Cells[175].BorderBrush}" Fill="{Binding Cells[175].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="17" Grid.Column="6" 
+                  Stroke="{Binding Cells[176].BorderBrush}" Fill="{Binding Cells[176].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="17" Grid.Column="7" 
+                  Stroke="{Binding Cells[177].BorderBrush}" Fill="{Binding Cells[177].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="17" Grid.Column="8" 
+                  Stroke="{Binding Cells[178].BorderBrush}" Fill="{Binding Cells[178].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="17" Grid.Column="9" 
+                  Stroke="{Binding Cells[179].BorderBrush}" Fill="{Binding Cells[179].Brush}" />
+                <!-- Nineteenth row-->
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="18" Grid.Column="0" 
+                  Stroke="{Binding Cells[180].BorderBrush}" Fill="{Binding Cells[180].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="18" Grid.Column="1" 
+                  Stroke="{Binding Cells[181].BorderBrush}" Fill="{Binding Cells[181].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="18" Grid.Column="2" 
+                  Stroke="{Binding Cells[182].BorderBrush}" Fill="{Binding Cells[182].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="18" Grid.Column="3" 
+                  Stroke="{Binding Cells[183].BorderBrush}" Fill="{Binding Cells[183].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="18" Grid.Column="4" 
+                  Stroke="{Binding Cells[184].BorderBrush}" Fill="{Binding Cells[184].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="18" Grid.Column="5" 
+                  Stroke="{Binding Cells[185].BorderBrush}" Fill="{Binding Cells[185].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="18" Grid.Column="6" 
+                  Stroke="{Binding Cells[186].BorderBrush}" Fill="{Binding Cells[186].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="18" Grid.Column="7" 
+                  Stroke="{Binding Cells[187].BorderBrush}" Fill="{Binding Cells[187].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="18" Grid.Column="8" 
+                  Stroke="{Binding Cells[188].BorderBrush}" Fill="{Binding Cells[188].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="18" Grid.Column="9" 
+                  Stroke="{Binding Cells[189].BorderBrush}" Fill="{Binding Cells[189].Brush}" />
+                <!-- Twentieth row-->
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="19" Grid.Column="0" 
+                  Stroke="{Binding Cells[190].BorderBrush}" Fill="{Binding Cells[190].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="19" Grid.Column="1" 
+                  Stroke="{Binding Cells[191].BorderBrush}" Fill="{Binding Cells[191].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="19" Grid.Column="2" 
+                  Stroke="{Binding Cells[192].BorderBrush}" Fill="{Binding Cells[192].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="19" Grid.Column="3" 
+                  Stroke="{Binding Cells[193].BorderBrush}" Fill="{Binding Cells[193].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="19" Grid.Column="4" 
+                  Stroke="{Binding Cells[194].BorderBrush}" Fill="{Binding Cells[194].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="19" Grid.Column="5" 
+                  Stroke="{Binding Cells[195].BorderBrush}" Fill="{Binding Cells[195].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="19" Grid.Column="6" 
+                  Stroke="{Binding Cells[196].BorderBrush}" Fill="{Binding Cells[196].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="19" Grid.Column="7" 
+                  Stroke="{Binding Cells[197].BorderBrush}" Fill="{Binding Cells[197].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="19" Grid.Column="8" 
+                  Stroke="{Binding Cells[198].BorderBrush}" Fill="{Binding Cells[198].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="19" Grid.Column="9" 
+                  Stroke="{Binding Cells[199].BorderBrush}" Fill="{Binding Cells[199].Brush}" />
+            </Grid>
+        </Border>
+
+        <!--<Border BorderBrush="Green" BorderThickness="1.0" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2">
+            <TextBlock Text="{Binding Message}" FontSize="24" />
+        </Border>-->
+
+        <Grid Grid.Row="0" Grid.RowSpan="2"  Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <TextBlock Text="{Binding LevelMessage}" Grid.Row="0" FontSize="48" Margin="1" FontFamily="{StaticResource Ruslan}" Foreground="#FFE8421D" HorizontalAlignment="Center"/>
+            <TextBlock Text="{Binding TotalScoreMessage}" Grid.Row="1" FontSize="48" Margin="1,1,5,1" FontFamily="{StaticResource Ruslan}" Foreground="#FFE8421D" HorizontalAlignment="Right" />
+            <TextBlock Text="{Binding InstantScoreMessage}" Grid.Row="2" FontSize="96" Foreground="{Binding InstantScoreBrush}" Margin="1" FontFamily="{StaticResource Ruslan}" HorizontalAlignment="Center" />
+
+            <Grid Background="White" Grid.Row="3">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40" />
+                    <RowDefinition Height="40" />
+                    <RowDefinition Height="40" />
+                    <RowDefinition Height="40" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="40" />
+                    <ColumnDefinition Width="40" />
+                    <ColumnDefinition Width="40" />
+                    <ColumnDefinition Width="40" />
+                </Grid.ColumnDefinitions>
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="0" Grid.Column="0" 
+                  Stroke="{Binding PreviewCells[0].BorderBrush}" Fill="{Binding PreviewCells[0].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="0" Grid.Column="1" 
+                  Stroke="{Binding PreviewCells[1].BorderBrush}" Fill="{Binding PreviewCells[1].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="0" Grid.Column="2" 
+                  Stroke="{Binding PreviewCells[2].BorderBrush}" Fill="{Binding PreviewCells[2].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="0" Grid.Column="3" 
+                  Stroke="{Binding PreviewCells[3].BorderBrush}" Fill="{Binding PreviewCells[3].Brush}" />
+
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="1" Grid.Column="0" 
+                  Stroke="{Binding PreviewCells[4].BorderBrush}" Fill="{Binding PreviewCells[4].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="1" Grid.Column="1" 
+                  Stroke="{Binding PreviewCells[5].BorderBrush}" Fill="{Binding PreviewCells[5].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="1" Grid.Column="2" 
+                  Stroke="{Binding PreviewCells[6].BorderBrush}" Fill="{Binding PreviewCells[6].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="1" Grid.Column="3" 
+                  Stroke="{Binding PreviewCells[7].BorderBrush}" Fill="{Binding PreviewCells[7].Brush}" />
+
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="2" Grid.Column="0" 
+                  Stroke="{Binding PreviewCells[8].BorderBrush}" Fill="{Binding PreviewCells[8].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="2" Grid.Column="1" 
+                  Stroke="{Binding PreviewCells[9].BorderBrush}" Fill="{Binding PreviewCells[9].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="2" Grid.Column="2" 
+                  Stroke="{Binding PreviewCells[10].BorderBrush}" Fill="{Binding PreviewCells[10].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="2" Grid.Column="3" 
+                  Stroke="{Binding PreviewCells[11].BorderBrush}" Fill="{Binding PreviewCells[11].Brush}" />
+
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="3" Grid.Column="0" 
+                  Stroke="{Binding PreviewCells[12].BorderBrush}" Fill="{Binding PreviewCells[12].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="3" Grid.Column="1" 
+                  Stroke="{Binding PreviewCells[13].BorderBrush}" Fill="{Binding PreviewCells[13].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="3" Grid.Column="2" 
+                  Stroke="{Binding PreviewCells[14].BorderBrush}" Fill="{Binding PreviewCells[14].Brush}" />
+                <Path Data="M0,5 L5,0 35,0 40,5 40,35 35,40 5,40 0,35 0,5 z" HorizontalAlignment="Stretch" Stretch="Fill" StrokeThickness="1" Grid.Row="3" Grid.Column="3" 
+                  Stroke="{Binding PreviewCells[15].BorderBrush}" Fill="{Binding PreviewCells[15].Brush}" />
+            </Grid>
+
+            <Button Content="{Binding SoundOnOffButtonLabel}" Command="{Binding MuteCommand}" Grid.Row="4" FontFamily="{StaticResource Ruslan}" FontSize="36" 
+                    Style="{StaticResource EightSquaresButton}" Focusable="False"/>
+            <Button Content="{Binding StartGameButtonLabel}" Command="{Binding StartGameCommand}" Grid.Row="5" FontFamily="{StaticResource Ruslan}" FontSize="36" 
+                    Style="{StaticResource EightSquaresButton}" />
+        </Grid>
+    </Grid>
+</Window>

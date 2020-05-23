@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29326.143
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NetCoreTetris", "NetCoreTetris\NetCoreTetris.csproj", "{EAF839C1-3CAB-4A14-8F5D-6EB5DE28B2C2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EAF839C1-3CAB-4A14-8F5D-6EB5DE28B2C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EAF839C1-3CAB-4A14-8F5D-6EB5DE28B2C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EAF839C1-3CAB-4A14-8F5D-6EB5DE28B2C2}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{EAF839C1-3CAB-4A14-8F5D-6EB5DE28B2C2}.Debug|x64.Build.0 = Debug|Any CPU
+		{EAF839C1-3CAB-4A14-8F5D-6EB5DE28B2C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EAF839C1-3CAB-4A14-8F5D-6EB5DE28B2C2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EAF839C1-3CAB-4A14-8F5D-6EB5DE28B2C2}.Release|x64.ActiveCfg = Release|Any CPU
+		{EAF839C1-3CAB-4A14-8F5D-6EB5DE28B2C2}.Release|x64.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E57267B5-9C2A-473A-A71D-89F39DC550F3}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 2
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://dev.azure.com/mahmudshehovdevelopment
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = NetCoreTetris\\NetCoreTetris.csproj
+		SccProjectName1 = NetCoreTetris
+		SccLocalPath1 = NetCoreTetris
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E57267B5-9C2A-473A-A71D-89F39DC550F3}
+	EndGlobalSection
+EndGlobal
