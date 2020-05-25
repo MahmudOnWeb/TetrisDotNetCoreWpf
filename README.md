@@ -1,5 +1,5 @@
 # An interpretation of a Tetris game
-## Constant refresh rate, no drawing libraries, no drawing at all, custom figures (think of tetromino) beside default tetrominos and custom transformation
+## Constant refresh rate, no drawing libraries used, beside default tetrominos custom figures with custom transformation can be added
 
 This project was created when .NET Core 3.0 was released, with added support for WPF and Winforms. I wanted to see how the .NET core WPF performs compared to existing .NET Framework. There are so many Tetris projects today, for example 32 799 public github repositories and counting (I guess when I created the project year ago the number was comparable), so why yet another one? The answer is pure egoism, pure selfishness. That was my proper motivation. I wanted a game that I will like, a game that I will enjoy. Contrary to most of other (Tetris projects) developers I actually played Tetris. I played different implementations over different hardware. I still enjoy playing it, even for short time.
 So my motivation was not to make a Tetris game under 40 minutes. Because later when I play it, it will feel like a game made under 40 minutes ;) Or to make it via fancy language. My motivation was to make a stable, responsive, simple game. Project where it is easy to implement new figures. In github repository of project there is only one new figure, working name is dotsquare, but you can follow the idea and easily create more figures. A project where it is easy to tune the way fugires rotate. In fact, it is not necessary even to rotate them. You can have a figure that at one moment is one square, at other moment two, and then three, and then back one. You don't rotate it, you transform it.
@@ -26,7 +26,7 @@ There are odf diagram files, made with Libre Office draw. For every diagram ther
 
 ![L tetrimono](https://github.com/MahmudOnWeb/TetrisDotNetCoreWpf/blob/master/RightWinkel%20-%20L.PNG?raw=true)
 
-It has four main positions, and when it rotates, the new position is with shown with blue color, and the old is with gray. Blue are displayed, gray are removed.
+It has four main positions, and when it rotates, move left, or down, or right, the new position is with shown with blue color, and the old is with gray. Blue are displayed, gray are removed.
 
 ## Start game, middle game and end game
 
