@@ -25,19 +25,4 @@ Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {E57267B5-9C2A-473A-A71D-89F39DC550F3}
-	EndGlobalSection
-	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 2
-		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccTeamFoundationServer = https://dev.azure.com/mahmudshehovdevelopment
-		SccLocalPath0 = .
-		SccProjectUniqueName1 = NetCoreTetris\\NetCoreTetris.csproj
-		SccProjectName1 = NetCoreTetris
-		SccLocalPath1 = NetCoreTetris
-	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {E57267B5-9C2A-473A-A71D-89F39DC550F3}
-	EndGlobalSection
 EndGlobal
