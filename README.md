@@ -24,5 +24,5 @@ Classes are designed in a way that their object closely resemble the actual non-
 ## Figures design
 
 There are odf diagram files, made with Libre Office(r) draw. For every diagram there is a screen-shot added. For example, the L tetrimino, described in Right Winkel class, have the follwing diagram:
-![L tetrimino](RightWinkel-L.png)
+![L tetrimino](https://github.com/MahmudOnWeb/TetrisDotNetCoreWpf/blob/master/RightWinkel%20-%20L.PNG?raw=true)
 It has four main positions, and when it rotates, the new position is with blue color, and the old is with gray. Blue are displayed, gray are removed.
