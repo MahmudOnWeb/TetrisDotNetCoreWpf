@@ -1,8 +1,7 @@
 # An interpretation of a Tetris game
 ## Constant refresh rate, no drawing libraries, no drawing at all, custom figures (think of tetromino) beside default tetrominos and custom transformation
 
-This project was created when .NET Core 3.0 was released, as I wanted to see how it performs compared to existing .NET Framework. Today, there are so many Tetris project, 32 799 public repositories, 
-I guess when I created the project year ago the number was comparable, so why yet another one? The answer is pure egoism, pure selfishness. That was my proper motivation. I wanted a game that I will like, a game that I will enjoy. Contrary to most of other developers I actually played Tetris. I played different implementations over different hardware. I still enjoy playing it, even for short time.
+This project was created when .NET Core 3.0 was released, as I wanted to see how it performs compared to existing .NET Framework. Today, there are so many Tetris project, 32 799 public repositories and counting, I guess when I created the project year ago the number was comparable, so why yet another one? The answer is pure egoism, pure selfishness. That was my proper motivation. I wanted a game that I will like, a game that I will enjoy. Contrary to most of other developers I actually played Tetris. I played different implementations over different hardware. I still enjoy playing it, even for short time.
 So my motivation was not to make a Tetris game under 40 minutes. Because later when I play it, it will feel like a game made under 40 minutes ;) Or to make it via fancy language. My motivation was to make a stable, responsive, simple game. Easy to implement new figures. In this repository there is only one new figure, working title is dotsquare, but you can follow the idea. And easy to tune the way figures rotate. In fact, it is not necessary even to rotate them. You can have a figure that at one moment is one square, at other two, and then three, then back to one etc. You don't rotate them, you transform them.
 
 ## Gameplay and key bindings
@@ -23,7 +22,7 @@ Classes are designed in a way that their object closely resemble the actual non-
 
 ## Figures design
 
-There are odf diagram files, made with Libre Office(r) draw. For every diagram there is a screen-shot added. For example, the figure commonly known as L tetromino, described in this project in Right Winkel class, have the follwing diagram:
+There are odf diagram files, made with Libre Office(r) draw. For every diagram there is a screen-shot added. For example, the figure commonly known as L tetromino, described in this project in Right Winkel class, have the following diagram:
 
 ![L tetrimono](https://github.com/MahmudOnWeb/TetrisDotNetCoreWpf/blob/master/RightWinkel%20-%20L.PNG?raw=true)
 
