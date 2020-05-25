@@ -22,11 +22,11 @@ Classes are designed in a way that objects created based on them closely resembl
 
 ## Figures design
 
-There are odf diagram files, made with Libre Office(r) draw. For every diagram there is a screen-shot added. For example, the figure commonly known as L tetromino, described in this project in Right Winkel class, have the following diagram:
+There are odf diagram files, made with Libre Office draw. For every diagram there is a screen-shot added. For example, the figure commonly known as L tetromino, described in this project in Right Winkel class, have the following diagram:
 
 ![L tetrimono](https://github.com/MahmudOnWeb/TetrisDotNetCoreWpf/blob/master/RightWinkel%20-%20L.PNG?raw=true)
 
-It has four main positions, and when it rotates, the new position is with blue color, and the old is with gray. Blue are displayed, gray are removed.
+It has four main positions, and when it rotates, the new position is with shown with blue color, and the old is with gray. Blue are displayed, gray are removed.
 
 ## Start game, middle game and end game
 
